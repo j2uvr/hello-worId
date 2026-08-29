@@ -24,30 +24,10 @@
             border-radius: 25px;
             box-shadow: 0 10px 25px rgba(255, 105, 135, 0.2);
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-        .img-box {
-            font-size: 70px;
-            margin-bottom: 15px;
-            animation: bounce 2s infinite ease-in-out;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        h2 {
-            color: #ff4d6d;
-            font-size: 22px;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        p.text {
-            font-size: 16px;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
+        .img-box { font-size: 70px; margin-bottom: 15px; }
+        h2 { color: #ff4d6d; font-size: 22px; margin-bottom: 15px; }
+        p.text { font-size: 16px; color: #555; margin-bottom: 25px; line-height: 1.6; }
         .btn {
             background: linear-gradient(135deg, #ff4d6d, #ff758f);
             color: white;
@@ -58,10 +38,6 @@
             border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(255, 77, 109, 0.4);
-            transition: 0.3s ease;
-        }
-        .btn:active {
-            transform: scale(0.95);
         }
         .step { display: none; }
         .step.active { display: block; }
@@ -79,10 +55,9 @@
 <body>
 
 <div class="container">
-    
     <div class="step active" id="step1">
         <div class="img-box">🎀🐱</div>
-        <h2>هلو تبارك حبيبي.. ✨</h2>
+        <h2>هلو توتايتي حبيبي.. ✨</h2>
         <p class="text">أكو شغلة زغيرة حاب أگلج إياها.. مستعدة؟ 🙈</p>
         <button class="btn" onclick="nextStep(2)">إي حسونتي مستعدة ❤️</button>
     </div>
@@ -96,43 +71,30 @@
 
     <div class="step" id="step3">
         <div class="img-box">👑💖</div>
-        <h2>أنتِ روحي وانتِ عشقي وهيامي ومغرمي واميرتي وانتِ كل دنيتي ❤️</h2>
-        <p class="text">اضغطي هنا حتى تفتح المفاجأة والأغنية.. 🎵</p>
-        <button class="btn" onclick="finish()">افتح المفاجأة ✨</button>
+        <h2>أنتِ كل دنيتي ❤️</h2>
+        <p class="text">اضغطي هنا حتى تفتح المفاجأة.. ✨</p>
+        <button class="btn" onclick="nextStep(4)">افتح المفاجأة ✨</button>
     </div>
 
     <div class="step" id="step4">
         <div class="img-box">🥰🌹</div>
         <h2>إلى شمس حياتي ☀️</h2>
-        
         <div class="card">
-            يا حبيبي و عشقي و اميرتي و مغرمي و جميلتي و لطيفتي و عزيزتي و ملهمتي و ملكتي و صباحي و مسائي وسنيني انتِ روحي ونفسي وگلبي والجوهره الي تضوي حياتي انتِ شخصي للمفضل والمميزه بگلبي انتِ غيمتي البيضه انتِ نجمتي التضوي وكوكبي الماكو نفسه كوكب و انتِ شمسي احبج يا روح روحي  ❤️
+            يا حبيبي و عشقي و اميرتي و مغرمي و جميلتي و لطيفتي و عزيزتي و ملهمتي و ملكتي و صباحي و مسائي وسنيني انتِ روحي ونفسي وگلبي والجوهره الي تضوي حياتي انتِ شخصي للمفضل والمميزه بگلبي انتِ غيمتي البيضه انتِ نجمتي التضوي وكوكبي الماكو نفسه كوكب و انتِ شمسي احبج يا روح روحي يامن إليك تميل روحي كلما
+مر النسيم محملاً بعطور
+ما كنت أؤمن ان للحسن آيه
+حتى رأيت آيه التقدير
         </div>
-
         <div class="card" style="font-weight: bold; color: #ff4d6d;">
             "شمسين تطلع بالسمه.. شمسك وشمس الله" 🎵✨
         </div>
-
-        <audio id="myAudio" loop>
-            <source src="https://www.dorar-aliraq.net/mp3/%D8%B4%D9%85%D8%B3%D9%8A%D9%86-%D9%85%D8%AD%D9%85%D8%AF-%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D8%AC%D8%A8%D8%A7%D8%B1" type="audio/mpeg">
-            المتصفح لا يدعم التشغيل الصوتي.
-        </audio>
     </div>
-
 </div>
 
 <script>
     function nextStep(stepNumber) {
         document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
         document.getElementById('step' + stepNumber).classList.add('active');
-    }
-
-    function finish() {
-        nextStep(4);
-        var audio = document.getElementById("myAudio");
-        audio.play().catch(function(error) {
-            console.log("تشغيل الصوت يتطلب إذن");
-        });
     }
 </script>
 
