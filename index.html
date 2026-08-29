@@ -38,6 +38,7 @@
             border-radius: 50px;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(255, 77, 109, 0.4);
+            margin-top: 10px;
         }
         .step { display: none; }
         .step.active { display: block; }
@@ -50,6 +51,10 @@
             line-height: 1.7;
             border: 1px dashed #ff758f;
         }
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -57,37 +62,46 @@
 <div class="container">
     <div class="step active" id="step1">
         <div class="img-box">🎀🐱</div>
-        <h2>هلو توتايتي حبيبي.. ✨</h2>
+        <h2>هلو توتاتي حبيبي.. ✨</h2>
         <p class="text">أكو شغلة زغيرة حاب أگلج إياها.. مستعدة؟ 🙈</p>
-        <button class="btn" onclick="nextStep(2)">إي حسونتي مستعدة ❤️</button>
+        <button class="btn" onclick="nextStep(2)">إي مستعدة ❤️</button>
     </div>
 
     <div class="step" id="step2">
         <div class="img-box">💌✨</div>
         <h2>سؤال بسيط 💭</h2>
-        <p class="text">تعرفين شگد أنتِ غالية وعزيزة على قلبي؟ 🥺</p>
+        <p class="text">تعرفين شگد أنتِ غالية وعزيزة على قلبي؟ 🙂</p>
         <button class="btn" onclick="nextStep(3)">شگد؟ 💗</button>
     </div>
 
     <div class="step" id="step3">
-        <div class="img-box">👑💖</div>
+        <div class="img-box"></div>
         <h2>أنتِ كل دنيتي ❤️</h2>
-        <p class="text">اضغطي هنا حتى تفتح المفاجأة.. ✨</p>
-        <button class="btn" onclick="nextStep(4)">افتح المفاجأة ✨</button>
+        <p class="text">اضغطي هنا حتى تفتح المفاجأة والأغنية.. ✨</p>
+        <button class="btn" onclick="finish()">افتح المفاجأة ✨</button>
     </div>
 
     <div class="step" id="step4">
         <div class="img-box">🥰🌹</div>
         <h2>إلى شمس حياتي ☀️</h2>
         <div class="card">
-            يا حبيبي و عشقي و اميرتي و مغرمي و جميلتي و لطيفتي و عزيزتي و ملهمتي و ملكتي و صباحي و مسائي وسنيني انتِ روحي ونفسي وگلبي والجوهره الي تضوي حياتي انتِ شخصي للمفضل والمميزه بگلبي انتِ غيمتي البيضه انتِ نجمتي التضوي وكوكبي الماكو نفسه كوكب و انتِ شمسي احبج يا روح روحي يامن إليك تميل روحي كلما
+            تبارك حبيبي اني احبج احبج و اموت عليج اعشقج عشق مصاير لو بيدي من عمري لعمرج و انتِ مو بس محبوبتي لا انتِ روحي وكلشي حلو بحياتي احبج من اعمق مكان بگلبي احبج حب مو طبيعي والله اتنفسج و هسه عرفت شكد حلو الحب لان انتِ وياي احبج يروح روحييامن إليك تميل روحي كلما
 مر النسيم محملاً بعطور
 ما كنت أؤمن ان للحسن آيه
-حتى رأيت آيه التقدير
+حتى رأيت آيه التقديروجودج بحياتي مو بس يسعدني وجودج يعلمني معنى الطمأنينه و وياج احس اني املك الدنيا كلهااا🥹🫂
         </div>
         <div class="card" style="font-weight: bold; color: #ff4d6d;">
             "شمسين تطلع بالسمه.. شمسك وشمس الله" 🎵✨
         </div>
+
+        <audio id="myAudio" controls autoplay>
+            <source src="https://server11.mp3quran.net/download/song_shamsen.mp3" type="audio/mpeg">
+            <source src="🙂🫂https://www.dorar-aliraq.net/mp3/%D8%B4%D9%85%D8%B3%D9%8A%D9%86-%D9%85%D8%AD%D9%85%D8%AF-%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D8%AC%D8%A8%D8%A7%D8%B1" type="audio/mpeg">
+            المتصفح لا يدعم الصوت.
+        </audio>
+        
+        <br>
+        <button class="btn" onclick="playMusic()">▶️ تشغيل الأغنية 🎵</button>
     </div>
 </div>
 
@@ -95,6 +109,18 @@
     function nextStep(stepNumber) {
         document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
         document.getElementById('step' + stepNumber).classList.add('active');
+    }
+
+    function finish() {
+        nextStep(4);
+        playMusic();
+    }
+
+    function playMusic() {
+        var audio = document.getElementById("myAudio");
+        audio.play().catch(function(error) {
+            console.log("إذن التشغيل مطلوب");
+        });
     }
 </script>
 
